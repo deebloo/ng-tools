@@ -9,8 +9,8 @@ import {
 import { timer } from 'rxjs';
 
 const enum Defaults {
-  Enter = 'entering',
-  Exit = 'exiting'
+  EnterAnimationName = 'entering',
+  ExitAnimationName = 'exiting'
 }
 
 @Directive({
@@ -53,18 +53,18 @@ export class IfAnimateDirective {
 
   private get enterAnimationClass() {
     if (this.templateValue) {
-      return this.templateValue.getAttribute('enter') || 'entering';
+      return this.templateValue.getAttribute('enter') || Defaults.EnterAnimationName;
     }
 
-    return 'entering';
+    return Defaults.EnterAnimationName;
   }
 
   private get exitAnimationClass() {
     if (this.templateValue) {
-      return this.templateValue.getAttribute('exit') || 'exiting';
+      return this.templateValue.getAttribute('exit') || Defaults.ExitAnimationName;
     }
 
-    return 'exiting';
+    return Defaults.ExitAnimationName;
   }
 
   constructor(
