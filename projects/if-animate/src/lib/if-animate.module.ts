@@ -7,4 +7,4 @@ import { IfAnimateDirective } from './if-animate.directive';
   imports: [],
   exports: [IfAnimateDirective]
 })
-export class IfAnimateModule {}
+export class NgtIfAnimateModule {}
