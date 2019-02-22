@@ -21,16 +21,16 @@ The element will wait to be removed from the view container until the exit anima
     `,
     styles: [
       `
-        @keyframes fadein { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 
-        @keyframes fadeout { 0% { opacity: 1; } 100% { opacity: 0; } }
+        @keyframes fadeOut { 0% { opacity: 1; } 100% { opacity: 0; } }
 
         .entering {
-          animation: fadein .4s;
+          animation: fadeIn .4s;
         }
 
         .exiting {
-          animation: fadeout .4s;
+          animation: fadeOut .4s;
         }
       `
     ]
