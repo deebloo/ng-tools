@@ -8,6 +8,11 @@ import {
 } from '@angular/core';
 import { timer } from 'rxjs';
 
+const enum Defaults {
+  Enter = 'entering',
+  Exit = 'exiting'
+}
+
 @Directive({
   selector: '[ngtIfAnimate]'
 })
@@ -16,7 +21,9 @@ export class IfAnimateDirective {
 
   @Input() set ngtIfAnimate(display: boolean) {
     if (display) {
-      this.containerRef.clear();
+      if (this.containerRef.length) {
+        this.containerRef.clear();
+      }
 
       if (this.ngtIfAnimateDelay) {
         timer(this.ngtIfAnimateDelay).subscribe(() => {
