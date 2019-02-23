@@ -3,6 +3,21 @@
 Directive for showing and hiding elements with an enter and exit animation.
 The element will wait to be removed from the view container until the exit animation is complete.
 
+#### Installation
+
+```
+npm i @ng-tk/if-animate
+```
+
+```TS
+import { NgtIfAnimateModule } from '@ts-ts/if-animate';
+
+@NgModule({
+  imports: [NgtIfAnimateModule]
+})
+export class AppModule {}
+```
+
 #### Attributes
 
 | name  | type   | default  | description                                         |
