@@ -33,6 +33,8 @@ export class AppModule {}
 
 #### Example
 
+![](../docs/example.gif)
+
 ```TS
   @Component({
     template: `
