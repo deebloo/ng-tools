@@ -33,7 +33,7 @@ export class AppModule {}
 
 #### Example
 
-![](../docs/example.gif)
+![](../../docs/example.gif)
 
 ```TS
   @Component({
