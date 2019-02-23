@@ -66,3 +66,20 @@ export class AppModule {}
     }
   }
 ```
+
+#### Delay
+
+```TS
+  @Component({
+    ...
+    template: `
+      <button (click)="onClick()">Toggle</button>
+
+      <p *ngtIfAnimate="display; delay: 500">Hello World</p>
+    `,
+    ...
+  })
+  class AnimationComponent {
+    ...
+  }
+```
