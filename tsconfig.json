@@ -14,8 +14,8 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "@ng-tool-kit/if-animate": ["dist/if-animate"],
-      "@ng-tool-kit/if-animate/*": ["dist/if-animate/*"]
+      "@ng-tk/if-animate": ["dist/if-animate"],
+      "@ng-tk/if-animate/*": ["dist/if-animate/*"]
     }
   }
 }
