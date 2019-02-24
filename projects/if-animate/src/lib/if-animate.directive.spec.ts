@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 
-import { IfAnimateModule } from './if-animate.module';
+import { NgtIfAnimateModule } from './if-animate.module';
 
 describe('IfAnimateDirective', () => {
   @Component({
@@ -18,7 +18,7 @@ describe('IfAnimateDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [IfAnimateModule],
+      imports: [NgtIfAnimateModule],
       declarations: [AnimationComponent]
     });
   });
