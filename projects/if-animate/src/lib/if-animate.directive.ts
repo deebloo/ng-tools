@@ -21,29 +21,9 @@ export class IfAnimateDirective {
 
   @Input() set ngtIfAnimate(display: boolean) {
     if (display) {
-      if (this.containerRef.length) {
-        this.containerRef.clear();
-      }
-
-      if (this.ngtIfAnimateDelay) {
-        timer(this.ngtIfAnimateDelay).subscribe(() => {
-          this.containerRef.createEmbeddedView(this.templateRef);
-
-          this.triggerAnimation(this.templateValue, this.enterAnimationClass);
-
-          this.cdRef.markForCheck();
-        });
-      } else {
-        this.containerRef.createEmbeddedView(this.templateRef);
-
-        this.triggerAnimation(this.templateValue, this.enterAnimationClass);
-      }
+      this.enter();
     } else {
-      if (this.templateValue) {
-        this.triggerAnimation(this.templateValue, this.exitAnimationClass).then(() => {
-          this.containerRef.clear();
-        });
-      }
+      this.exit();
     }
   }
 
@@ -76,15 +56,43 @@ export class IfAnimateDirective {
 
   private triggerAnimation(el: HTMLElement, animation: string): Promise<void> {
     return new Promise(resolve => {
-      const listener = this.renderer.listen(el, 'animationend', () => {
+      const removeListener = this.renderer.listen(el, 'animationend', () => {
         this.renderer.removeClass(el, animation);
 
-        listener();
+        removeListener();
 
         resolve();
       });
 
       this.renderer.addClass(el, animation);
     });
+  }
+
+  private enter(): void {
+    if (this.containerRef.length) {
+      this.containerRef.clear();
+    }
+
+    if (this.ngtIfAnimateDelay) {
+      timer(this.ngtIfAnimateDelay).subscribe(() => {
+        this.containerRef.createEmbeddedView(this.templateRef);
+
+        this.triggerAnimation(this.templateValue, this.enterAnimationClass);
+
+        this.cdRef.markForCheck();
+      });
+    } else {
+      this.containerRef.createEmbeddedView(this.templateRef);
+
+      this.triggerAnimation(this.templateValue, this.enterAnimationClass);
+    }
+  }
+
+  private exit(): void {
+    if (this.templateValue) {
+      this.triggerAnimation(this.templateValue, this.exitAnimationClass).then(() => {
+        this.containerRef.clear();
+      });
+    }
   }
 }
